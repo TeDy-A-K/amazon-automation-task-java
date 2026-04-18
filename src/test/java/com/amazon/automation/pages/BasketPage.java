@@ -45,14 +45,14 @@ public class BasketPage extends BasePage {
     }
 
     public String basketSubtotal() {
-        return readRequiredText(BASKET_SUBTOTAL);
+        return normalizePrice(readRequiredText(BASKET_SUBTOTAL));
     }
 
     private BookSnapshot toItemSnapshot(WebElement item) {
         return BookSnapshot.builder()
                 .title(readRequiredTextWithin(item, ITEM_TITLE))
                 .selectedType(readRequiredTextWithin(item, ITEM_TYPE))
-                .unitPrice(readRequiredTextWithin(item, ITEM_UNIT_PRICE))
+                .unitPrice(normalizePrice(readRequiredTextWithin(item, ITEM_UNIT_PRICE)))
                 .quantity(readRequiredTextWithin(item, ITEM_QUANTITY))
                 .build();
     }

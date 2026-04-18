@@ -34,7 +34,7 @@ public class ProductDetailsPage extends BasePage {
                 .title(readRequiredText(TITLE))
                 .badge(readOptionalText(BADGE))
                 .selectedType(readRequiredText(TYPE))
-                .unitPrice(readRequiredText(PRICE))
+                .unitPrice(normalizePrice(readRequiredText(PRICE)))
                 .build();
     }
 

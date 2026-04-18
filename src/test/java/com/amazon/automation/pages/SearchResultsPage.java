@@ -38,7 +38,7 @@ public class SearchResultsPage extends BasePage {
                 .title(readRequiredTextWithin(result, RESULT_TITLE))
                 .badge(readOptionalTextWithin(result, RESULT_BADGE))
                 .selectedType(readRequiredTextWithin(result, RESULT_TYPE))
-                .unitPrice(readRequiredDomTextWithin(result, RESULT_PRICE))
+                .unitPrice(normalizePrice(readRequiredDomTextWithin(result, RESULT_PRICE)))
                 .build();
     }
 

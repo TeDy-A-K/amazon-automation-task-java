@@ -75,4 +75,9 @@ public abstract class BasePage {
                 .replaceAll("\\s+", " ")
                 .trim();
     }
+
+    protected String normalizePrice(String value) {
+        // Remove currency symbols, whitespace, and keep only digits and decimal point
+        return value.replaceAll("[^\\d.]", "");
+    }
 }

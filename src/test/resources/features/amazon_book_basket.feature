@@ -13,7 +13,7 @@ Feature: Amazon UK books - search to basket validation
     When the user adds the item to the basket
     Then the add to basket confirmation should be shown with <expectedQuantity> basket item
     When the user opens the basket editor
-    Then basket details should match the selected search result title fragment "<expectedTitle>", type "<expectedType>", unit price, and quantity "<expectedQuantity>"
+    Then basket details should contain the added books with title fragment, type, unit price, quantity, and total price
 
     Examples:
       | searchKeyword                     | expectedTitle                                         | expectedType | expectedQuantity |
