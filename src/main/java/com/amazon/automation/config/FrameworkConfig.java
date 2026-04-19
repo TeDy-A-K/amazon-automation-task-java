@@ -2,6 +2,7 @@ package com.amazon.automation.config;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
 import java.time.Duration;
 import java.util.Objects;
 import java.util.Properties;
@@ -45,6 +46,15 @@ public final class FrameworkConfig {
 
     public boolean screenshotOnFailure() {
         return Boolean.parseBoolean(getOrDefault("screenshot.on.failure", "true"));
+    }
+
+    public String getBaseUrlDomain() {
+        try {
+            URI uri = URI.create(getBaseUrl());
+            return uri.getHost();
+        } catch (Exception e) {
+            throw new IllegalStateException("Failed to extract domain from base URL: " + getBaseUrl(), e);
+        }
     }
 
     private String get(String key) {
